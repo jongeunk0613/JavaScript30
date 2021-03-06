@@ -64,7 +64,7 @@
             const audio = document.querySelector(`audio[data-key='${evt.keyCode}']`);
             audio.currentTime = 0;
             audio.play();
-            const key = document.querySelector(`div[data-key='${evt.keyCode}']`);
+            const key = document.querySelector(`.key[data-key='${evt.keyCode}']`);
             key.classList.add("playing");
             setTimeout(() => {
                 key.classList.remove("playing");
