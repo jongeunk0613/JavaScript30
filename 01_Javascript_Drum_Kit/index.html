@@ -61,9 +61,9 @@
     document.addEventListener("keypress", (evt) => {
         const keys = [65, 83, 68, 70, 71, 72, 74, 75, 76];
         if (keys.includes(evt.keyCode)){
-            const audio = document.querySelectorAll(`audio[data-key='${evt.keyCode}']`)[0];
+            const audio = document.querySelector(`audio[data-key='${evt.keyCode}']`);
             audio.play();
-            const key = document.querySelectorAll(`div[data-key='${evt.keyCode}']`)[0];
+            const key = document.querySelector(`div[data-key='${evt.keyCode}']`);
             key.classList.add("playing");
             setTimeout(() => {
                 key.classList.remove("playing");
