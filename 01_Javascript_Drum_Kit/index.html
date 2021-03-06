@@ -75,7 +75,7 @@
 
     const keys = document.querySelectorAll('.key');
     keys.forEach(key => key.addEventListener("transitionend", removeTransition));
-    document.addEventListener("keypress", playSound);
+    window.addEventListener("keypress", playSound);
 
 </script>
 
