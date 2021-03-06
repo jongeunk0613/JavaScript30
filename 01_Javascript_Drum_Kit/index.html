@@ -63,6 +63,11 @@
         if (keys.includes(evt.keyCode)){
             const audio = document.querySelectorAll(`audio[data-key='${evt.keyCode}']`)[0];
             audio.play();
+            const key = document.querySelectorAll(`div[data-key='${evt.keyCode}']`)[0];
+            key.classList.add("playing");
+            setTimeout(() => {
+                key.classList.remove("playing");
+            }, 100);
         } 
     });
 </script>
