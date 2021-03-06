@@ -4,7 +4,7 @@
 
 <br/>
 
-### **LIST**
+### 📝 **LIST** 
 
 01 - [Javascript Drum Kit](https://github.com/jongeunk0613/JavaScript30/tree/main/01_Javascript_Drum_Kit)
 
