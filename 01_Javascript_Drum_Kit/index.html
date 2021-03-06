@@ -58,7 +58,13 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+    document.addEventListener("keypress", (evt) => {
+        const keys = [65, 83, 68, 70, 71, 72, 74, 75, 76];
+        if (keys.includes(evt.keyCode)){
+            const audio = document.querySelectorAll(`audio[data-key='${evt.keyCode}']`)[0];
+            audio.play();
+        } 
+    });
 </script>
 
 
