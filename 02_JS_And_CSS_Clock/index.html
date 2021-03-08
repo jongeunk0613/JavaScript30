@@ -75,13 +75,18 @@
 
         const updateClockHands = () => {
             const currentTime = new Date();
+
             const hours = currentTime.getHours();
             const minutes = currentTime.getMinutes();
             const seconds = currentTime.getSeconds();
 
-            hourHand.style.transform = `rotate(${((hours/24) * 360) + 90}deg)`;
-            minuteHand.style.transform = `rotate(${((minutes/60) * 360) + 90}deg)`;
-            secondHand.style.transform = `rotate(${((seconds/60) * 360) + 90}deg)`;
+            const hoursDegree = ((hours/24) * 360) + 90;
+            const minutesDegree = ((minutes/60) * 360) + 90;
+            const secondsDegree = ((seconds/60) * 360) + 90;
+
+            hourHand.style.transform = `rotate(${hoursDegree}deg)`;
+            minuteHand.style.transform = `rotate(${minutesDegree}deg)`;
+            secondHand.style.transform = `rotate(${secondsDegree}deg)`;
         }
 
         updateClockHands();
