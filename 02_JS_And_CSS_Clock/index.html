@@ -62,11 +62,31 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
     }
 
   </style>
 
   <script>
+
+        const updateClockHands = () => {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+            const seconds = currentTime.getSeconds();
+
+            const hourHand = document.querySelector(".hand.hour-hand");
+            const minuteHand = document.querySelector(".hand.min-hand");
+            const secondHand = document.querySelector(".hand.second-hand");
+
+            hourHand.style.transform = `rotate(${hours%12 * 30 + 90}deg)`;
+            minuteHand.style.transform = `rotate(${minutes%60 * 6 + 90}deg)`;
+            secondHand.style.transform = `rotate(${seconds%60 * 6 + 90}deg)`;
+        }
+
+        updateClockHands();
+
+        setInterval(updateClockHands, 1000);
 
 
   </script>
