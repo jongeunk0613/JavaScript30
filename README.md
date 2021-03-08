@@ -15,5 +15,4 @@
 ### 📝 **LIST** 
 
 [01 - Javascript Drum Kit](https://github.com/jongeunk0613/JavaScript30/tree/main/01_Javascript_Drum_Kit)
-[02 - JS and CSS Clock](https://github.com/jongeunk0613/JavaScript30/tree/main/02_JS_And_CSS_Clock)
 
