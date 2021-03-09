@@ -56,26 +56,14 @@
   </style>
 
   <script>
-    const root = document.documentElement;
-    const inputSpacing = document.getElementById("spacing");
-    const inputBlur = document.getElementById("blur");
-    const inputBaseColor = document.getElementById("base");
+    const inputs = document.querySelectorAll('.controls input');
 
-    const updateSpacingValue = () => {
-        root.style.setProperty("--spacing", inputSpacing.value + "px");
+    function handleUpdate() {
+        const suffix = this.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
 
-    const updateBlurValue = () => {
-        root.style.setProperty("--blur", inputBlur.value + "px");
-    }
-
-    const updateBaseColorValue = () => {
-        root.style.setProperty("--base-color", inputBaseColor.value);
-    }
-
-    inputSpacing.addEventListener("input", updateSpacingValue);
-    inputBlur.addEventListener("input", updateBlurValue);
-    inputBaseColor.addEventListener("input", updateBaseColorValue);
+    inputs.forEach(input => input.addEventListener("input", handleUpdate));
       
   </script>
 
