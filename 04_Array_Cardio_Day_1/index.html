@@ -38,12 +38,14 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     const inventorsBornIn1500 = inventors.filter(inventor => inventor.year >= 1500 && inventor.year <= 1599);
-    console.log("Inventors born in the 1500's: ", inventorsBornIn1500);
+    console.log("Inventors born in the 1500's: ");
+    console.table(inventorsBornIn1500);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
     const inventorsFirstandLastNames = inventors.map(inventor => { return {first: inventor.first, last: inventor.last} });
-    console.log("Inventors' first and last names: ", inventorsFirstandLastNames);
+    console.log("Inventors' first and last names: ");
+    console.table(inventorsFirstandLastNames);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
@@ -51,7 +53,8 @@
         return a.year - b.year;
     }
     const sortedInventorsByBirthDate = inventors.sort(compareByBirthDate);
-    console.log("Sort inventors by birthdate, oldest to youngest: ", sortedInventorsByBirthDate);
+    console.log("Sort inventors by birthdate, oldest to youngest: ");
+    console.table(sortedInventorsByBirthDate);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
@@ -64,7 +67,8 @@
         return (a.passed - a.year) - (b.passed - b.year);
     }
     const sortedInventorsByYearsLived = inventors.sort(compareByYearsLived);
-    console.log("Sort inventors by years lived: ", sortedInventorsByYearsLived);
+    console.log("Sort inventors by years lived: ");
+    console.table(sortedInventorsByYearsLived);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -95,7 +99,8 @@
     }
 
     const peopleSortedByLastName = people.sort(compareByLastName);
-    console.log("People sorted by last name: ", peopleSortedByLastName);
+    console.log("People sorted by last name: ");
+    console.table(peopleSortedByLastName);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
@@ -106,7 +111,8 @@
         obj[instance] += 1;
         return obj;
     }, {});
-    console.log("Sum up the instances: ", transportation);
+    console.log("Sum up the instances: ");
+    console.table(transportation);
 
   </script>
 </body>
