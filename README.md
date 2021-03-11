@@ -18,3 +18,4 @@
 
 [02 - JS and CSS Clock](https://github.com/jongeunk0613/JavaScript30/tree/main/02_JS_And_CSS_Clock)
 
+[03 - CSS Variables](https://github.com/jongeunk0613/JavaScript30/tree/main/03_CSS_Variables)
