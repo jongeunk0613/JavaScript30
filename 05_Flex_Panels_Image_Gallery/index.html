@@ -90,7 +90,6 @@
 
   </style>
 
-
   <div class="panels">
     <div class="panel panel1">
       <p>Hey</p>
@@ -120,10 +119,16 @@
   </div>
 
   <script>
+      const panels = document.querySelectorAll('.panel');
+
+      function toggleOpen() {
+          this.classList.toggle('open-active');
+          this.classList.toggle('open');
+      }
+
+      panels.forEach(panel => panel.addEventListener("click" , toggleOpen));
 
   </script>
-
-
 
 </body>
 </html>
