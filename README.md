@@ -21,3 +21,5 @@
 [03 - CSS Variables](https://github.com/jongeunk0613/JavaScript30/tree/main/03_CSS_Variables)
 
 [04 - Array Cardio Day](https://github.com/jongeunk0613/JavaScript30/tree/main/04_Array_Cardio_Day_1)
+
+[05 - Flex Panels Image Gallery](https://github.com/jongeunk0613/JavaScript30/tree/main/05_Flex_Panels_Image_Gallery)
