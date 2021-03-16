@@ -22,27 +22,20 @@
       this.content = content; 
       this.target = target;
 
-      this.render();
     }
 
-    createListElement(city, state, population){
+    createListElement(city, state, population, searchKeyword){
+      const regex = new RegExp(searchKeyword, "g");
+      const cityName = city.replaceAll(regex, '<span class="hl">$&</span>');
+      const stateName = state.replaceAll(regex, '<span class="hl">$&</span>');
       const html = `
         <li>
-          <span class="name">${city} , ${state}</span>
+          <span class="name">${cityName} , ${stateName}</span>
           <span class="population">${population}</span>
         </li>
       `;
 
       return html;
-    }
-
-    createList(){
-      const listHTMLs = this.content.map(candidate => this.createListElement(candidate.city, candidate.state, (parseInt(candidate.population)).toLocaleString()));
-      return listHTMLs;
-    }
-
-    render() {
-      this.suggestions = this.createList();
     }
 
     rerender(searchKeyword) {
@@ -52,10 +45,13 @@
         <li>or a state</li>`;
         return ;
       }
+
       this.target.innerHTML = "";
-      this.suggestions.forEach(suggestion => {
-        if (suggestion.includes(searchKeyword) == true){
-          this.target.innerHTML += suggestion;
+      this.content.forEach(suggestion => {
+        if (suggestion.city.includes(searchKeyword) == true || suggestion.state.includes(searchKeyword) == true){
+          const suggestionHTML = this.createListElement(suggestion.city, suggestion.state, (parseInt(suggestion.population)).toLocaleString(), searchKeyword);
+          console.log(suggestionHTML)
+          this.target.innerHTML += suggestionHTML;
         }
       });
     }
