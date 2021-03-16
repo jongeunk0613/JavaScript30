@@ -46,6 +46,12 @@
     }
 
     rerender(searchKeyword) {
+      if (searchKeyword == ""){
+        this.target.innerHTML = `
+        <li>Filter for a city</li>
+        <li>or a state</li>`;
+        return ;
+      }
       this.target.innerHTML = "";
       this.suggestions.forEach(suggestion => {
         if (suggestion.includes(searchKeyword) == true){
@@ -63,7 +69,7 @@
         const listContent = JSON.parse(this.responseText);
         const suggestionList = new SuggestionList(listContent, suggestionListElement);
         const searchInput = document.querySelector('input.search');
-        searchInput.addEventListener("input", () => {
+        searchInput.addEventListener("keyup", () => {
           suggestionList.rerender(searchInput.value);
         });
       }
