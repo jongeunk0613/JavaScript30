@@ -15,7 +15,63 @@
     </ul>
   </form>
 <script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+  
+  class SuggestionList{
+    constructor(content, target){
+      this.content = content; 
+      this.target = target;
+
+      this.render();
+    }
+
+    createListElement(city, state, population){
+      const html = `
+        <li>
+          <span class="name">${city} , ${state}</span>
+          <span class="population">${population}</span>
+        </li>
+      `;
+
+      return html;
+    }
+
+    createList(){
+      const listHTMLs = this.content.map(candidate => this.createListElement(candidate.city, candidate.state, candidate.population));
+      return listHTMLs;
+    }
+
+    render() {
+      this.suggestions = this.createList();
+    }
+
+    rerender(searchKeyword) {
+      this.target.innerHTML = "";
+      this.suggestions.forEach(suggestion => {
+        if (suggestion.includes(searchKeyword) == true){
+          this.target.innerHTML += suggestion;
+        }
+      });
+    }
+  }
+
+  window.addEventListener('load', (evt) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200){
+        const suggestionListElement = document.querySelector(".suggestions");
+        const listContent = JSON.parse(this.responseText);
+        const suggestionList = new SuggestionList(listContent, suggestionListElement);
+        const searchInput = document.querySelector('input.search');
+        searchInput.addEventListener("input", () => {
+          suggestionList.rerender(searchInput.value);
+        });
+      }
+    }
+
+    xhttp.open("GET", endpoint);
+    xhttp.send();
+  });
 
 </script>
 </body>
