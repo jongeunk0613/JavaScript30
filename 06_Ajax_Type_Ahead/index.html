@@ -37,7 +37,7 @@
     }
 
     createList(){
-      const listHTMLs = this.content.map(candidate => this.createListElement(candidate.city, candidate.state, candidate.population));
+      const listHTMLs = this.content.map(candidate => this.createListElement(candidate.city, candidate.state, (parseInt(candidate.population)).toLocaleString()));
       return listHTMLs;
     }
 
