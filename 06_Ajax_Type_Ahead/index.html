@@ -25,9 +25,9 @@
     }
 
     createListElement(city, state, population, searchKeyword){
-      const regex = new RegExp(searchKeyword, "g");
-      const cityName = city.replaceAll(regex, '<span class="hl">$&</span>');
-      const stateName = state.replaceAll(regex, '<span class="hl">$&</span>');
+      const regex = new RegExp(searchKeyword, "gi");
+      const cityName = city.replace(regex, '<span class="hl">$&</span>');
+      const stateName = state.replace(regex, '<span class="hl">$&</span>');
       const html = `
         <li>
           <span class="name">${cityName} , ${stateName}</span>
@@ -50,7 +50,6 @@
       this.content.forEach(suggestion => {
         if (suggestion.city.includes(searchKeyword) == true || suggestion.state.includes(searchKeyword) == true){
           const suggestionHTML = this.createListElement(suggestion.city, suggestion.state, (parseInt(suggestion.population)).toLocaleString(), searchKeyword);
-          console.log(suggestionHTML)
           this.target.innerHTML += suggestionHTML;
         }
       });
