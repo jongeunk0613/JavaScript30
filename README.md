@@ -12,6 +12,11 @@
 
 <br/>
 
+### ***Notes***
+[- Wikis](https://github.com/jongeunk0613/JavaScript30/wiki)
+
+<br/>
+
 ### 📝 **LIST** 
 
 [01 - Javascript Drum Kit](https://github.com/jongeunk0613/JavaScript30/tree/main/01_Javascript_Drum_Kit)
