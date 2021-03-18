@@ -17,63 +17,12 @@
 <script>
   const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
   
-  class SuggestionList{
-    constructor(content, target){
-      this.content = content; 
-      this.target = target;
+  const cities = [];
 
-    }
-
-    createListElement(city, state, population, searchKeyword){
-      const regex = new RegExp(searchKeyword, "gi");
-      const cityName = city.replace(regex, '<span class="hl">$&</span>');
-      const stateName = state.replace(regex, '<span class="hl">$&</span>');
-      const html = `
-        <li>
-          <span class="name">${cityName} , ${stateName}</span>
-          <span class="population">${population}</span>
-        </li>
-      `;
-
-      return html;
-    }
-
-    rerender(searchKeyword) {
-      if (searchKeyword == ""){
-        this.target.innerHTML = `
-        <li>Filter for a city</li>
-        <li>or a state</li>`;
-        return ;
-      }
-
-      this.target.innerHTML = "";
-      this.content.forEach(suggestion => {
-        if (suggestion.city.includes(searchKeyword) == true || suggestion.state.includes(searchKeyword) == true){
-          const suggestionHTML = this.createListElement(suggestion.city, suggestion.state, (parseInt(suggestion.population)).toLocaleString(), searchKeyword);
-          this.target.innerHTML += suggestionHTML;
-        }
-      });
-    }
-  }
-
-  window.addEventListener('load', (evt) => {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200){
-        const suggestionListElement = document.querySelector(".suggestions");
-        const listContent = JSON.parse(this.responseText);
-        const suggestionList = new SuggestionList(listContent, suggestionListElement);
-        const searchInput = document.querySelector('input.search');
-        searchInput.addEventListener("keyup", () => {
-          suggestionList.rerender(searchInput.value);
-        });
-      }
-    }
-
-    xhttp.open("GET", endpoint);
-    xhttp.send();
-  });
-
+  fetch(endpoint)
+    .then(blob => blob.json())
+    .then(data => cities.push(...data));
+  
 </script>
 </body>
 </html>
