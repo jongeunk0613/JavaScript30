@@ -30,3 +30,5 @@
 [05 - Flex Panels Image Gallery](https://github.com/jongeunk0613/JavaScript30/tree/main/05_Flex_Panels_Image_Gallery)
 
 [06 - Ajax Type Ahead](https://github.com/jongeunk0613/JavaScript30/tree/main/06_Ajax_Type_Ahead)
+
+[07 - Array Cardio Day 2](https://github.com/jongeunk0613/JavaScript30/tree/main/07_Array_Cardio_Day_2)
