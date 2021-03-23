@@ -25,6 +25,8 @@
     ];
 
     // Some and Every Checks
+    const isAPersonAtLeast19 = people.some(person => (2021 - person.year) >= 19);
+    console.log("Is a person at least 19? : ", isAPersonAtLeast19);
     // Array.prototype.some() // is at least one person 19 or older?
     // Array.prototype.every() // is everyone 19 or older?
 
