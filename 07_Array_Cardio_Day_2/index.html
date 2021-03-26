@@ -25,9 +25,9 @@
     ];
 
     // Some and Every Checks
-    const isAPersonAtLeast19 = people.some(person => (2021 - person.year) >= 19);
+    const isAPersonAtLeast19 = people.some(person => ((new Date).getFullYear - person.year) >= 19);
     console.log("Is a person at least 19? : ", isAPersonAtLeast19);
-    const isEveryPesonAtLeast19 = people.every(person => (2021 - person.year) >= 19);
+    const isEveryPesonAtLeast19 = people.every(person => ((new Date).getFullYear - person.year) >= 19);
     console.log("Is every person at least 19? : ", isEveryPesonAtLeast19);
 
     // Array.prototype.find()
